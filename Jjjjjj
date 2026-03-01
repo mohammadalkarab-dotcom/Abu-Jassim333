@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ديوان أبو جاسم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #D4AF37; --black: #0a0a0a; }
+        body, html { margin: 0; padding: 0; background-color: var(--black); color: white; font-family: 'Amiri', serif; overflow: hidden; }
+        #welcome-screen { height: 100vh; display: flex; justify-content: center; align-items: center; background: radial-gradient(circle, #1a1a1a 0%, #000 100%); position: fixed; width: 100%; z-index: 999; text-align: center; transition: opacity 1s ease; }
+        .enter-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 15px 40px; font-size: 1.5rem; cursor: pointer; font-family: 'Reem Kufi'; transition: 0.5s; margin-top: 20px; }
+        .enter-btn:hover { background: var(--gold); color: black; box-shadow: 0 0 20px var(--gold); }
+        .container { scroll-snap-type: y mandatory; overflow-y: scroll; height: 100vh; display: none; }
+        .page { height: 100vh; scroll-snap-align: start; display: flex; justify-content: center; align-items: center; padding: 40px; box-sizing: border-box; text-align: center; }
+        .gold-text { color: var(--gold); font-family: 'Reem Kufi'; }
+        .main-title { font-size: 3.5rem; margin: 0; text-shadow: 2px 2px 10px rgba(212,175,55,0.3); }
+        .date-display { border: 2px solid var(--gold); padding: 30px; margin: 20px 0; display: inline-block; }
+        .day { font-size: 5rem; display: block; color: var(--gold); font-weight: bold; line-height: 1; }
+        .letter-box { max-width: 800px; line-height: 2; }
+        .letter-p { font-size: 1.4rem; color: #ddd; text-align: justify; }
+        .poem-container { margin: 40px 0; border-right: 4px solid var(--gold); border-left: 4px solid var(--gold); padding: 20px; background: rgba(212, 175, 55, 0.05); }
+        .poem-line { font-size: 1.8rem; font-weight: bold; margin: 10px 0; }
+        .scroll-hint { margin-top: 50px; opacity: 0.6; animation: bounce 2s infinite; color: var(--gold); }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} }
+    </style>
+</head>
+<body>
+    <div id="welcome-screen">
+        <div>
+            <h2 class="gold-text" style="font-size: 2.5rem;">حيّ الله أبو جاسم</h2>
+            <button onclick="startExperience()" class="enter-btn">ادخل الديوان</button>
+        </div>
+    </div>
+    <div id="main-content" class="container">
+        <section class="page">
+            <div>
+                <h1 class="main-title">محمد ابن البصرة</h1>
+                <p class="gold-text" style="font-size: 1.5rem;">سليل الأجواد وراعي الهيبة</p>
+                <div class="scroll-hint">اسحب للأعلى ↑</div>
+            </div>
+        </section>
+        <section class="page">
+            <div>
+                <h3 class="gold-text">تاريخٍ جمعنا</h3>
+                <div class="date-display"><span class="day">22</span><span>SEPTEMBER 2024</span></div>
+                <p style="font-size: 1.2rem;">مواليد 2003 | اثنان وعشرون عاماً من الوقار</p>
+            </div>
+        </section>
+        <section class="page">
+            <div class="letter-box">
+                <h3 class="gold-text" style="font-size: 2rem;">رسالة عضيد</h3>
+                <p class="letter-p">في مِحرابِ الأخوةِ، تَقِفُ الكلماتُ إجلالاً لِرجلٍ لم تَزدهُ الأيامُ إلا أصالةً.. شكراً لأنك الأخ الذي لم تلدُه أمي.</p>
+                <div class="poem-container">
+                    <p class="poem-line">أُصَادِقُ نَفْسَ المَرْءِ قَبْلَ جِسْمِهِ</p>
+                    <p class="poem-line">وأَعْرِفُهَا فِي فِعْلِهِ وَالتَّكَلُّمِ</p>
+                </div>
+                <p class="gold-text" style="font-size: 1.3rem;">كُلُّ عامٍ وأنتَ لِلمرجلةِ عُنوان</p>
+            </div>
+        </section>
+    </div>
+    <script>
+        function startExperience() {
+            const welcome = document.getElementById("welcome-screen");
+            welcome.style.opacity = "0";
+            setTimeout(() => {
+                welcome.style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
